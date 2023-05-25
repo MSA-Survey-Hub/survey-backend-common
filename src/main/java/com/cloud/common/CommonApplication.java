@@ -9,7 +9,6 @@ import org.springframework.kafka.annotation.EnableKafka;
 @EnableKafka
 @EnableFeignClients
 @SpringBootApplication
-@EnableDiscoveryClient
 public class CommonApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CommonApplication.class, args);
