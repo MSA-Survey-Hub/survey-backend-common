@@ -17,13 +17,13 @@ spring:
     show-sql: false
   kafka:
     consumer:
-      bootstrap-servers: http://kafka
+      bootstrap-servers: host.docker.internal:9092
       group-id: survey_platform
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     producer:
-      bootstrap-servers: http://kafka
+      bootstrap-servers: host.docker.internal:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
   security:
