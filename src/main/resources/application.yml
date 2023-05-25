@@ -7,23 +7,23 @@ spring:
     name: common-service
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/common_db
+    url: jdbc:mariadb://mysql:3306/common_db?allowPublicKeyRetrieval=true&useSSL=false
     username: root
     password: root
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     generate-ddl: false
     show-sql: false
   kafka:
     consumer:
-      bootstrap-servers: localhost:9092
+      bootstrap-servers: kafka:9092
       group-id: survey_platform
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     producer:
-      bootstrap-servers: localhost:9092
+      bootstrap-servers: kafka:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
   security:
@@ -43,7 +43,7 @@ keycloak:
   resource: team_cloud_client
   auth-server-url: http://localhost:5010/
   credentials:
-    secret: AvgjtsAvqQUNfo9DemEpANjMt3YrAtbt
+    secret: jM9vQGEvKdKovpbnSD83Q6HFDmAliEFd
 
 eureka:
   instance:
