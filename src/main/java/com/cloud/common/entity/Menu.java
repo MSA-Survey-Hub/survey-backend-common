@@ -2,6 +2,7 @@ package com.cloud.common.entity;
 
 import com.sun.istack.NotNull;
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import java.util.List;
 public class Menu {
     @Id
     @Column(name = "menu_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer menuId;
 
     @Column(name = "pmenu_id", nullable = false)

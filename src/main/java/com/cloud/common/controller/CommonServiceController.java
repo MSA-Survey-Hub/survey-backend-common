@@ -37,7 +37,6 @@ public class CommonServiceController {
 
     @GetMapping("/menu")
     public List<MenuDTO> getUserMenuDTO(Principal principal) {
-        System.out.println("principal = " + principal);
         if (principal != null) {
             JwtAuthenticationToken token = (JwtAuthenticationToken) principal;
             Map<String,Object> resource_access = (Map<String,Object>) token.getTokenAttributes().get("resource_access");
@@ -48,6 +47,9 @@ public class CommonServiceController {
             } else if (roles.get(0).equals("ADMIN")) {
                 return commonService.getAdminMenuDTOList();
             }
+        }
+        else{
+            return commonService.getAdminMenuDTOList();
         }
         return commonService.getAllMenuDTOList();
     }
